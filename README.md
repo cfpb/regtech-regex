@@ -1,106 +1,60 @@
-#### CFPB Open Source Project Template Instructions
+# regtech-regex
 
-1. Create a new project.
-2. [Copy these files into the new project](#installation)
-3. Update the README, replacing the contents below as prescribed.
-4. Add any libraries, assets, or hard dependencies whose source code will be included
-   in the project's repository to the _Exceptions_ section in the [TERMS](TERMS.md).
-  - If no exceptions are needed, remove that section from TERMS.
-5. If working with an existing code base, answer the questions on the [open source checklist](opensource-checklist.md)
-6. Delete these instructions and everything up to the _Project Title_ from the README.
-7. Write some great software and tell people about it.
+Shared data validations using regular expressions for use at the CFPB. This repo aims to collect sensible regex data validations in one YAML file for use across multiple tech stacks in the Small Business Lending project and maybe beyond.
 
-> Keep the README fresh! It's the first thing people see and will make the initial impression.
+This YAML file is subject to sudden and breaking changes while the Small Business Lending project is in development, so use at your own risk.
 
-## Installation
-
-To install all of the template files, run the following script from the root of your project's directory:
-
-```
-bash -c "$(curl -s https://raw.githubusercontent.com/CFPB/development/main/open-source-template.sh)"
-```
-
-----
-
-# Project Title
-
-**Description**:  Put a meaningful, short, plain-language description of what
-this project is trying to accomplish and why it matters.
-Describe the problem(s) this project solves.
-Describe how this software can improve the lives of its audience.
-
-Other things to include:
-
-  - **Technology stack**: Indicate the technological nature of the software, including primary programming language(s) and whether the software is intended as standalone or as a module in a framework or other ecosystem.
-  - **Status**:  Alpha, Beta, 1.1, etc. It's OK to write a sentence, too. The goal is to let interested people know where this project is at. This is also a good place to link to the [CHANGELOG](CHANGELOG.md).
-  - **Links to production or demo instances**
-  - Describe what sets this apart from related-projects. Linking to another doc or page is OK if this can't be expressed in a sentence or two.
-
-
-**Screenshot**: If the software has visual components, place a screenshot after the description; e.g.,
-
-![](https://raw.githubusercontent.com/cfpb/open-source-project-template/main/screenshot.png)
-
+![A rough diagram of the regtech-regex vision of a single YAML file sharing the same regular expression for validating data such as Research, Statistics, Supervision, Discount IDs across multiple use cases. The diagram shows a YAML object that contains a RSSD ID number along with a regex that ensures that the value is an integer. Two arrows point from the YAML: one arrow points to a file that has an RSSD ID that is 9999 with a green validation check mark, and the other arrow points toward a file that has an RSSD ID with a red invalid symbol of X](regtech-regex.svg)
 
 ## Dependencies
 
-Describe any dependencies that must be installed for this software to work.
-This includes programming languages, databases or other storage mechanisms, build tools, frameworks, and so forth.
-If specific versions of other software are required, or known not to work, call that out.
+This repo doesn't currently have any dependencies. Just a good old YAML file.
 
 ## Installation
 
-Detailed instructions on how to install, configure, and get the project running.
-This should be frequently tested to ensure reliability. Alternatively, link to
-a separate [INSTALL](INSTALL.md) document.
-
-## Configuration
-
-If the software is configurable, describe it in detail, either here or in other documentation to which you link.
+Import the `validations.yaml` file using the URL or via a package manager.
 
 ## Usage
 
-Show users how to use the software.
-Be specific.
-Use appropriate formatting when showing code snippets.
+Here's an example of an entry in the `validations.yaml` file:
 
-## How to test the software
+```yaml
+rssd_id:
+  description: must be an integer
+  examples:
+    - '9999'
+    - '1'
+  link: https://regex101.com/r/l3SyQi/3
+  regex: ^\d+$
+```
 
-If the software includes automated tests, detail how to run those tests.
+Each entry should be snake case, with common acronyms and initialisms being acceptable.
 
-## Known issues
+Each entry should have 4 properties: description, examples, link, and regex.
 
-Document any known significant shortcomings with the software.
+- description: short description of how this value should be validated
+- examples: an array of strings that are examples of values that would be validated as being correct
+- link: a link to [regex101.com](https://regex101.com/) for live documentation and so devs can easily test the regular expression
+- regex: the regular expression that validates the value
 
 ## Getting help
-
-Instruct users how to get help with this software; this might include links to an issue tracker, wiki, mailing list, etc.
-
-**Example**
 
 If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker.
 
 ## Getting involved
 
-This section should detail why people should get involved and describe key areas you are
-currently focusing on; e.g., trying to get feedback on features, fixing certain bugs, building
-important pieces, etc.
+Think you might have a simple regular expression that relates to consumer finance that might be helpful? Create an issue! See [CONTRIBUTING](CONTRIBUTING.md) for more details.
 
-General instructions on _how_ to contribute should be stated with a link to [CONTRIBUTING](CONTRIBUTING.md).
-
-
-----
+---
 
 ## Open source licensing info
+
 1. [TERMS](TERMS.md)
 2. [LICENSE](LICENSE)
 3. [CFPB Source Code Policy](https://github.com/cfpb/source-code-policy/)
 
-
-----
+---
 
 ## Credits and references
 
-1. Projects that inspired you
-2. Related projects
-3. Books, papers, talks, or other sources that have meaningful impact or influence on this project
+1. Screenshot uses icons from the [CFPB Design System](https://cfpb.github.io/design-system/foundation/iconography) and composed with [tldraw](https://www.tldraw.com/)
