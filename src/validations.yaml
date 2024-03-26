@@ -9,7 +9,7 @@ email:
     - https://html.spec.whatwg.org/multipage/input.html#email-state-(type=email)
   regex: ^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
 lei:
-  description: must be 18 characters that only contain A-Z and 0-9 followed by a 2 digit  # See issue #3 for discussion about more comprehensive validations
+  description: must be 18 characters that only contain A-Z and 0-9 followed by 2 digits  # See issue #3 for discussion about more comprehensive validations
   error_text: Must be a valid LEI of 20 characters that only contain A-Z and 0-9 (no special characters).
   examples:
     - 123400TESTBANK000192
