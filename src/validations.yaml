@@ -18,7 +18,6 @@ lei:
     - 123400TESTSUBBANK244
     - TESTBANK123456789012 # See issue #3 for discussion about more comprehensive validations
   link: https://regex101.com/r/ItOdOj/3
-  references:
   regex: ^[A-Z0-9]{18}\d{2}$
 rssd_id:
   description: must be an integer
@@ -27,7 +26,6 @@ rssd_id:
     - '9999'
     - '1'
   link: https://regex101.com/r/l3SyQi/3
-  references:
   regex: ^\d+$
 simple_us_phone_number: 
   description: must be a simple United States phone number pattern of 3 digits, followed by a hyphen, followed by 3 digits, followed by a hyphen, followed by 4 digits
@@ -36,7 +34,6 @@ simple_us_phone_number:
     - 555-555-5555
     - 555-123-4567
   link: https://regex101.com/r/jt6ujJ/5
-  references:
   regex: ^\d{3}-\d{3}-\d{4}$
 tin:
   description: must be 2 digits, followed by a hyphen, followed by 7 digits
@@ -45,5 +42,4 @@ tin:
     - 12-3456789
     - 98-7654321
   link: https://regex101.com/r/7op0LA/3
-  references:
   regex: ^\d{2}-\d{7}$
