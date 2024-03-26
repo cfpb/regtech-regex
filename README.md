@@ -21,20 +21,24 @@ Here's an example of an entry in the `validations.yaml` file:
 ```yaml
 rssd_id:
   description: must be an integer
+  error_text: Must be a number.
   examples:
     - '9999'
     - '1'
   link: https://regex101.com/r/l3SyQi/3
+  references:
   regex: ^\d+$
 ```
 
 Each entry should be snake case, with common acronyms and initialisms being acceptable.
 
-Each entry should have 4 properties: description, examples, link, and regex.
+Each entry should have the following properties:
 
-- description: short description of how this value should be validated
+- description: a short description of how this value should be validated
+- error_text: a user-friendly message that could be displayed on a frontend form validation
 - examples: an array of strings that are examples of values that would be validated as being correct
 - link: a link to [regex101.com](https://regex101.com/) for live documentation and so devs can easily test the regular expression
+- references: an array of links to external documentation
 - regex: the regular expression that validates the value
 
 ## Getting help

@@ -27,6 +27,7 @@ rssd_id:
     - '9999'
     - '1'
   link: https://regex101.com/r/l3SyQi/3
+  references:
   regex: ^\d+$
 simple_us_phone_number: 
   description: must be a simple United States phone number pattern of 3 digits, followed by a hyphen, followed by 3 digits, followed by a hyphen, followed by 4 digits
