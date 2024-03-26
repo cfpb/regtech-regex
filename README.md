@@ -26,7 +26,6 @@ rssd_id:
     - '9999'
     - '1'
   link: https://regex101.com/r/l3SyQi/3
-  references:
   regex: ^\d+$
 ```
 
