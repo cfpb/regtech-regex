@@ -1,18 +1,23 @@
 email:
-  description: must conform to common email conventions using the W3C method of email validation which is only a subset of full RFC 5322 compliance as per https://html.spec.whatwg.org/multipage/input.html#email-state-(type=email)
+  description: must conform to common email conventions using the W3C method of email validation which is only a subset of full RFC 5322 compliance
   examples:
     - a-test-email-account@cfpb.gov
     - ASuperCoolEmailAccount@cfpb.gov
   link: https://regex101.com/r/bUsmeo/2
+  references:
+    - https://html.spec.whatwg.org/multipage/input.html#email-state-(type=email)
   regex: ^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
 lei:
-  description: must be 20 characters and only contain A-Z, and 0-9 (no special characters)
+  description: must be 20 characters and only contain A-Z, and 0-9 (no special characters) # See issue #3 for discussion about more comprehensive validations
   examples:
-    - 123456789TESTBANK123
-    - 123456789TESTBANK456
-    - 123456TESTSUBBANK456
-  link: https://regex101.com/r/5AaT18/6
-  regex: ^[\dA-Z]{20}$
+    - 123400TESTBANK000192
+    - 123400TESTBANK000289
+    - 123400TESTSUBBANK147
+    - 123400TESTSUBBANK244
+    - TESTBANK123456789012 # See issue #3 for discussion about more comprehensive validations
+  link: https://regex101.com/r/ItOdOj/3
+  references:
+  regex: ^[A-Z0-9]{18}\d{2}$
 rssd_id:
   description: must be an integer
   examples:
@@ -21,11 +26,12 @@ rssd_id:
   link: https://regex101.com/r/l3SyQi/3
   regex: ^\d+$
 simple_us_phone_number: 
-  description: a simple united states phone number pattern of 3 digits, followed, by a hyphen, followed by 3 digits, followed by a hyphen, followed by 4 digits
+  description: must be a simple United States phone number pattern of 3 digits, followed, by a hyphen, followed by 3 digits, followed by a hyphen, followed by 4 digits
   examples:
     - 555-555-5555
     - 555-123-4567
   link: https://regex101.com/r/jt6ujJ/5
+  references:
   regex: ^\d{3}-\d{3}-\d{4}$
 tin:
   description: must be 2 digits, followed by a hyphen, followed by 7 digits
@@ -33,4 +39,5 @@ tin:
     - 12-3456789
     - 98-7654321
   link: https://regex101.com/r/7op0LA/3
+  references:
   regex: ^\d{2}-\d{7}$
