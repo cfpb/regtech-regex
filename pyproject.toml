@@ -22,12 +22,6 @@ pytest = "^8.0.0"
 pytest-cov = "^5.0.0"
 pytest-mock = "^3.14.0"
 
-[tool.poetry.build]
-script = "src/python/regtech_regex/build.py"
-
-[tool.poetry.scripts]
-script = "regtech_regex.build:copy_yaml"
-
 [tool.poetry.group.linters.dependencies]
 ruff = "^0.1.15"
 black = "^24.1.1"
