@@ -15,20 +15,9 @@ dependencies = [
 allow-direct-references = true
 
 [tool.hatch.build]
-include = [
-  "src/validations.yaml",
-]
-
-[tool.hatch.build.targets.wheel]
 packages = ["src/python/regtech_regex"]
 
-[tool.hatch.build.targets.wheel.force-include]
-"src/validations.yaml" = "validations.yaml"
-
-[tool.hatch.build.targets.sdist]
-packages = ["src/python/regtech_regex"]
-
-[tool.hatch.build.targets.sdist.force-include]
+[tool.hatch.build.force-include]
 "src/validations.yaml" = "regtech_regex/validations.yaml"
 
 

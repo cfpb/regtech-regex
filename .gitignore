@@ -75,7 +75,3 @@ bower_components/
 .grunt/
 src/vendor/
 dist/
-
-# Python build #
-###############
-src/python/regtech_regex/validations.yaml
