@@ -5,7 +5,8 @@ description = ""
 authors = ["CFPB's RegTech Team"]
 readme = "README.md"
 packages = [
-    { include = "regtech_regex", from = "src/python"}
+    { include = "regtech_regex", from = "src/python"},
+    { include = "validations.yaml", from = "src"}
 ]
 include = [
     {path = "src/validations.yaml"}
