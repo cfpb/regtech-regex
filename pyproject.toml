@@ -7,6 +7,9 @@ readme = "README.md"
 packages = [
     { include = "regtech_regex", from = "src/python"}
 ]
+include = [
+    {path = "src/validations.yaml"}
+]
 
 [tool.poetry.dependencies]
 python = "^3.12"
