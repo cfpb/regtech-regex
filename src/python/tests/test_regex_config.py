@@ -9,7 +9,7 @@ class TestRegex:
     def test_regex(self, mocker: MockerFixture):
         mock = mocker.patch("regtech_regex.regex_config.os.path.dirname")
         mock.return_value = os.path.join(os.getcwd(), "src")
-        
+
         configs = ConfigFactory().get_regex_configs()
 
         good_email = "Jason.Adam@cfpb.gov"
