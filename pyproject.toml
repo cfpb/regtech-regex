@@ -52,3 +52,9 @@ source = ["src/python/regtech_regex"]
 
 [tool.coverage.report]
 skip_empty = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+regtech_regex = ["validations.yaml"]
