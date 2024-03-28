@@ -1,7 +1,7 @@
 import os
-import yaml
-
 from dataclasses import dataclass
+
+import yaml
 
 
 @dataclass

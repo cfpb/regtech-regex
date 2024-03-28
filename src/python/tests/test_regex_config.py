@@ -1,8 +1,9 @@
 import os
 import re
 
-from regtech_regex.regex_config import ConfigFactory
 from pytest_mock import MockerFixture
+
+from regtech_regex.regex_config import ConfigFactory
 
 
 class TestRegex:
