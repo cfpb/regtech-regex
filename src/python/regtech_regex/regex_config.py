@@ -28,8 +28,8 @@ class ConfigFactory:
                 for k in regex_yamls.keys():
                     regex = RegexConfig(**regex_yamls[k])
                     _configs[k] = regex
-            except yaml.YAMLError:
+            except yaml.YAMLError as ye:
                 raise RuntimeError(
-                    "Unable to load validations.yaml, regex validations will be unavailable."
+                    f"Unable to load validations.yaml, regex validations will be unavailable. Error: {ye}"
                 )
         return _configs
