@@ -9,7 +9,6 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "pyyaml~=6.0.1",
-    "validations.yaml @ url:///https://github.com/cfpb/regtech-regex/blob/7-add-python-source/src/validations.yaml"
 ]
 
 [tool.hatch.metadata]
@@ -36,9 +35,9 @@ dependencies = [
     "black~=24.1.1"
 ]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+#[build-system]
+#requires = ["hatchling"]
+#build-backend = "hatchling.build"
 
 #[build-system]
 #requires = ["poetry-core"]
