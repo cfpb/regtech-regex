@@ -19,10 +19,11 @@ Run `poetry run pytest` to test the regex's
 Run `hatch -e test run pytest` to test the regex's
 
 #### Note
-Due to issues with the package managers including the yaml file outside of the python package structure, the [build-system]
-elements in the pyproject.toml have intionally been commented out until a time where the CFPB builds and pushes to PyPI 
-this project as a standalone whl/sdist distro.  By leaving the buildp-systems commented out, other Regtech SBL python
-projects can successfully declare this git repo as a dependency.  
+Due to issues with the package managers including the yaml file outside of the python package structure, the Poetry [build-system]
+element in the pyproject.toml has been commented out until a time where the CFPB builds and pushes to PyPI 
+this project as a standalone whl/sdist distro.  By leaving the Poetry buildp-system commented out, other Regtech SBL Poetry python
+projects can successfully declare this git repo as a dependency.  Note that pyproject.toml still requires a build-system, therefore
+a hatch build-system has been defined, for now.  
 
 ## Usage
 

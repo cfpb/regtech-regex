@@ -35,7 +35,7 @@ dependencies = [
     "black~=24.1.1"
 ]
 
-# NOTE: Keep the build-systems commented out for now, this is the only
+# NOTE: Keep the poetry build-system commented out for now, this is the only
 # way to get this to work with our other poetry projects that depend
 # on this python module.  Once we start building and pushing up
 # whls/sdists, we can address which build system to use

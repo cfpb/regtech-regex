@@ -8,11 +8,20 @@ This YAML file is subject to sudden and breaking changes while the Small Busines
 
 ## Dependencies
 
-This repo doesn't currently have any dependencies. Just a good old YAML file.
+Dependencies will be defined within the individual language package managers.
+
+### Python
+A python project has been defined in pyproject.toml, as well as the source under src/python/regtech_regex.  Currently the only dependency used is pyyaml, which reads the yaml file into a python dict, 
+which is then converted into a data class for use by clients of the library.
+
+See the src/python/README.md for information on dependencies, installation and usage.
 
 ## Installation
 
 Import the `validations.yaml` file using the URL or via a package manager.
+
+### Python
+See the src/python/README.md for information on dependencies, installation and usage.
 
 ## Usage
 
@@ -39,6 +48,9 @@ Each entry should have the following properties:
 - link: a link to [regex101.com](https://regex101.com/) for live documentation and so devs can easily test the regular expression
 - references: an array of links to external documentation
 - regex: the regular expression that validates the value
+
+### Python
+See the src/python/README.md for information on dependencies, installation and usage.
 
 ## Getting help
 

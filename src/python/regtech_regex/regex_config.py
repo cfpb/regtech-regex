@@ -1,6 +1,7 @@
 import os
 from re import Pattern, compile
 from dataclasses import dataclass
+from typing import List
 
 import yaml
 
@@ -10,9 +11,9 @@ class RegexConfig:
     description: str
     error_text: str
     regex: Pattern
-    examples: [str] = None
-    link: str = None
-    references: [str] = None
+    examples: List[str] | None = None
+    link: str | None = None
+    references: List[str] | None = None
 
 
 class ConfigFactory:
