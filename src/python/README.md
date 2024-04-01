@@ -36,7 +36,7 @@ config_factory = ConfigFactory()
 
 configs = config_factory.get_regex_configs()
 
-match = re.match(configs["lei"].regex, self.lei)
+match = configs["lei"].regex.match(self.lei)
 ```
 
 The ConfigFactory was written to so that a single instance of ConfigFactory will maintain the dict of RegexConfig objects without having
