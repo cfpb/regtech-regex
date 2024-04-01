@@ -1,5 +1,4 @@
 import os
-import re
 
 from pytest_mock import MockerFixture
 
