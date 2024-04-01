@@ -29,18 +29,18 @@ class TestRegex:
         good_tin = "98-7654321"
         bad_tin = "123456789"
 
-        assert re.match(configs["email"].regex, good_email)
-        assert not re.match(configs["email"].regex, bad_email)
+        assert configs["email"].regex.match(good_email)
+        assert not configs["email"].regex.match(bad_email)
 
-        assert re.match(configs["lei"].regex, good_lei)
-        assert not re.match(configs["lei"].regex, bad_lei)
-        assert not re.match(configs["lei"].regex, another_bad_lei)
+        assert configs["lei"].regex.match(good_lei)
+        assert not configs["lei"].regex.match(bad_lei)
+        assert not configs["lei"].regex.match(another_bad_lei)
 
-        assert re.match(configs["rssd_id"].regex, good_rssd)
-        assert not re.match(configs["rssd_id"].regex, bad_rssd)
+        assert configs["rssd_id"].regex.match(good_rssd)
+        assert not configs["rssd_id"].regex.match(bad_rssd)
 
-        assert re.match(configs["simple_us_phone_number"].regex, good_phone)
-        assert not re.match(configs["simple_us_phone_number"].regex, bad_phone)
+        assert configs["simple_us_phone_number"].regex.match(good_phone)
+        assert not configs["simple_us_phone_number"].regex.match(bad_phone)
 
-        assert re.match(configs["tin"].regex, good_tin)
-        assert not re.match(configs["tin"].regex, bad_tin)
+        assert configs["tin"].regex.match(good_tin)
+        assert not configs["tin"].regex.match(bad_tin)

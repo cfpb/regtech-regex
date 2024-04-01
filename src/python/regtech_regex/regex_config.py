@@ -1,4 +1,5 @@
 import os
+from re import Pattern, compile
 from dataclasses import dataclass
 
 import yaml
@@ -8,7 +9,7 @@ import yaml
 class RegexConfig:
     description: str
     error_text: str
-    regex: str
+    regex: Pattern
     examples: [str] = None
     link: str = None
     references: [str] = None
@@ -26,9 +27,10 @@ class ConfigFactory:
                 _configs = {}
                 for k in regex_yamls.keys():
                     regex = RegexConfig(**regex_yamls[k])
+                    regex.regex = compile(regex.regex)
                     _configs[k] = regex
             except yaml.YAMLError as ye:
                 raise RuntimeError(
-                    f"Unable to load validations.yaml, regex validations will be unavailable. Error: {ye}"
-                )
+                    "Unable to load validations.yaml, regex validations will be unavailable."
+                ) from ye
         return _configs
