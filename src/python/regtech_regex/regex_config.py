@@ -16,22 +16,26 @@ class RegexConfig:
     references: List[str] | None = None
 
 
-class ConfigFactory:
-    _configs = None
-
-    def get_regex_configs(self):
-        if not self._configs:
-            try:
-                BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-                with open(os.path.join(BASE_DIR, "validations.yaml")) as f:
-                    regex_yamls = yaml.safe_load(f)
-                _configs = {}
-                for k in regex_yamls.keys():
-                    regex = RegexConfig(**regex_yamls[k])
-                    regex.regex = compile(regex.regex)
-                    _configs[k] = regex
-            except yaml.YAMLError as ye:
-                raise RuntimeError(
-                    "Unable to load validations.yaml, regex validations will be unavailable."
-                ) from ye
-        return _configs
+class Configs(object):
+    email: RegexConfig
+    lei: RegexConfig
+    rssd_id: RegexConfig
+    tin: RegexConfig
+    phone_number: RegexConfig
+    
+    def __init__(self):
+        try:
+            BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+            with open(os.path.join(BASE_DIR, "validations.yaml")) as f:
+                regex_yamls = yaml.safe_load(f)
+                email = RegexConfig(**regex_yamls["email"])
+                tin = RegexConfig(**regex_yamls["tin"])
+                rssd_id = RegexConfig(**regex_yamls["rssd_id"])
+                lei = RegexConfig(**regex_yamls["lei"])
+                phone_number = RegexConfig(**regex_yamls["simple_us_phone_number"])
+        except yaml.YAMLError as ye:
+            raise RuntimeError(
+                "Unable to load validations.yaml, regex validations will be unavailable."
+            ) from ye
+            
+regex_config = Configs()

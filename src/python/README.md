@@ -28,22 +28,18 @@ a hatch build-system has been defined, for now.
 ## Usage
 
 ```
-from regtech_regex.regex_config import ConfigFactory
+from regtech_regex.regex_config import regex_config
 
-config_factory = ConfigFactory()
 
-...
-
-configs = config_factory.get_regex_configs()
-
-match = configs["lei"].regex.match(self.lei)
+match = regex_config.lei.match("12345")
 ```
 
-The ConfigFactory was written to so that a single instance of ConfigFactory will maintain the dict of RegexConfig objects without having
-to parse the yaml each time get_regex_configs() is called (though the time it takes to do that is negligible).
-
-The config dict has keys that match the validations.yaml.  Each RegexConfig contains the full set of data defined in yaml for that key.
-
+Current list of RegexConfig objects available are:
+ - regex_config.email
+ - regex_config.lei
+ - regex_config.phone_number
+ - regex_config.rssd_id
+ - regex_config.tin
 
 ## Getting help
 
