@@ -22,20 +22,30 @@ class Configs(object):
     rssd_id: RegexConfig
     tin: RegexConfig
     phone_number: RegexConfig
-    
+
     def __init__(self):
         try:
             BASE_DIR = os.path.dirname(os.path.abspath(__file__))
             with open(os.path.join(BASE_DIR, "validations.yaml")) as f:
                 regex_yamls = yaml.safe_load(f)
-                email = RegexConfig(**regex_yamls["email"])
-                tin = RegexConfig(**regex_yamls["tin"])
-                rssd_id = RegexConfig(**regex_yamls["rssd_id"])
-                lei = RegexConfig(**regex_yamls["lei"])
-                phone_number = RegexConfig(**regex_yamls["simple_us_phone_number"])
+                self.email = RegexConfig(**regex_yamls["email"])
+                self.email.regex = compile(self.email.regex)
+
+                self.tin = RegexConfig(**regex_yamls["tin"])
+                self.tin.regex = compile(self.tin.regex)
+
+                self.rssd_id = RegexConfig(**regex_yamls["rssd_id"])
+                self.rssd_id.regex = compile(self.rssd_id.regex)
+
+                self.lei = RegexConfig(**regex_yamls["lei"])
+                self.lei.regex = compile(self.lei.regex)
+
+                self.phone_number = RegexConfig(**regex_yamls["simple_us_phone_number"])
+                self.phone_number.regex = compile(self.phone_number.regex)
         except yaml.YAMLError as ye:
             raise RuntimeError(
                 "Unable to load validations.yaml, regex validations will be unavailable."
             ) from ye
-            
+
+
 regex_config = Configs()
