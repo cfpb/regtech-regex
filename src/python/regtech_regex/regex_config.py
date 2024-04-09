@@ -2,6 +2,7 @@ import os
 from re import Pattern, compile
 from dataclasses import dataclass
 from typing import List
+import importlib.resources
 
 import yaml
 
@@ -26,7 +27,7 @@ class Configs(object):
     def __init__(self):
         try:
             BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-            with open(os.path.join(BASE_DIR, "validations.yaml")) as f:
+            with importlib.resources.files("regtech_regex").joinpath("validations.yaml").open() as f:
                 regex_yamls = yaml.safe_load(f)
                 self.email = RegexConfig(**regex_yamls["email"])
                 self.email.regex = compile(self.email.regex)
