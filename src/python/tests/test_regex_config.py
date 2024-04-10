@@ -2,13 +2,15 @@ import os
 
 from pytest_mock import MockerFixture
 
-from regtech_regex.regex_config import regex_config
+from regtech_regex.regex_config import RegexConfigs
 
 
 class TestRegex:
     def test_regex(self, mocker: MockerFixture):
         mock = mocker.patch("regtech_regex.regex_config.os.path.dirname")
         mock.return_value = os.path.join(os.getcwd(), "src")
+        
+        configs = RegexConfigs.instance()
 
         good_email = "Jason.Adam@cfpb.gov"
         bad_email = "something@bad_domain"
@@ -26,18 +28,18 @@ class TestRegex:
         good_tin = "98-7654321"
         bad_tin = "123456789"
 
-        assert regex_config.email.regex.match(good_email)
-        assert not regex_config.email.regex.match(bad_email)
+        assert configs.email.regex.match(good_email)
+        assert not configs.email.regex.match(bad_email)
 
-        assert regex_config.lei.regex.match(good_lei)
-        assert not regex_config.lei.regex.match(bad_lei)
-        assert not regex_config.lei.regex.match(another_bad_lei)
+        assert configs.lei.regex.match(good_lei)
+        assert not configs.lei.regex.match(bad_lei)
+        assert not configs.lei.regex.match(another_bad_lei)
 
-        assert regex_config.rssd_id.regex.match(good_rssd)
-        assert not regex_config.rssd_id.regex.match(bad_rssd)
+        assert configs.rssd_id.regex.match(good_rssd)
+        assert not configs.rssd_id.regex.match(bad_rssd)
 
-        assert regex_config.phone_number.regex.match(good_phone)
-        assert not regex_config.phone_number.regex.match(bad_phone)
+        assert configs.phone_number.regex.match(good_phone)
+        assert not configs.phone_number.regex.match(bad_phone)
 
-        assert regex_config.tin.regex.match(good_tin)
-        assert not regex_config.tin.regex.match(bad_tin)
+        assert configs.tin.regex.match(good_tin)
+        assert not configs.tin.regex.match(bad_tin)
