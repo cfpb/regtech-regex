@@ -26,20 +26,21 @@ projects can successfully declare this git repo as a dependency.  Note that pypr
 a hatch build-system has been defined, for now.  
 
 ## Usage
+RegexConfigs is designed as a Singleton, so a client must call the RegexConfigs.instance() function.
 
 ```
-from regtech_regex.regex_config import regex_config
+from regtech_regex.regex_config import RegexConfigs
 
-
-match = regex_config.lei.match("12345")
+configs = RegexConfigs.instance()
+match = configs.lei.match("12345")
 ```
 
 Current list of RegexConfig objects available are:
- - regex_config.email
- - regex_config.lei
- - regex_config.phone_number
- - regex_config.rssd_id
- - regex_config.tin
+ - email
+ - lei
+ - phone_number
+ - rssd_id
+ - tin
 
 ## Getting help
 
