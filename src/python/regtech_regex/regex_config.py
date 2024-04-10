@@ -28,8 +28,8 @@ class Configs(object):
     @classmethod
     def instance(cls):
         if not cls._instance:
-            cls._instance = cls.__new__(cls)
             try:
+                cls._instance = cls.__new__(cls)
                 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
                 with open(os.path.join(BASE_DIR, "validations.yaml")) as f:
                     regex_yamls = yaml.safe_load(f)
