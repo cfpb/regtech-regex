@@ -29,7 +29,6 @@ class Configs(object):
     def instance(cls):
         if not cls._instance:
             try:
-                cls._instance = cls.__new__(cls)
                 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
                 with open(os.path.join(BASE_DIR, "validations.yaml")) as f:
                     regex_yamls = yaml.safe_load(f)
@@ -47,6 +46,7 @@ class Configs(object):
 
                     cls.phone_number = RegexConfig(**regex_yamls["simple_us_phone_number"])
                     cls.phone_number.regex = compile(cls.phone_number.regex)
+                cls._instance = cls.__new__(cls)
             except yaml.YAMLError as ye:
                 raise RuntimeError(
                     "Unable to load validations.yaml, regex validations will be unavailable."
