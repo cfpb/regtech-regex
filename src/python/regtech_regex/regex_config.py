@@ -23,7 +23,7 @@ class Configs(object):
     tin: RegexConfig
     phone_number: RegexConfig
 
-    _instance = None
+    _instance: "Configs | None" = None
 
     @classmethod
     def instance(cls):
