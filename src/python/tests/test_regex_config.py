@@ -2,13 +2,15 @@ import os
 
 from pytest_mock import MockerFixture
 
-from regtech_regex.regex_config import regex_config
+from regtech_regex.regex_config import Configs
 
 
 class TestRegex:
     def test_regex(self, mocker: MockerFixture):
         mock = mocker.patch("regtech_regex.regex_config.os.path.dirname")
         mock.return_value = os.path.join(os.getcwd(), "src")
+
+        regex_config = Configs.instance()
 
         good_email = "Jason.Adam@cfpb.gov"
         bad_email = "something@bad_domain"
