@@ -44,7 +44,9 @@ class RegexConfigs(object):
                     cls.lei = RegexConfig(**regex_yamls["lei"])
                     cls.lei.regex = compile(cls.lei.regex)
 
-                    cls.phone_number = RegexConfig(**regex_yamls["simple_us_phone_number"])
+                    cls.phone_number = RegexConfig(
+                        **regex_yamls["simple_us_phone_number"]
+                    )
                     cls.phone_number.regex = compile(cls.phone_number.regex)
                 cls._instance = cls.__new__(cls)
             except yaml.YAMLError as ye:

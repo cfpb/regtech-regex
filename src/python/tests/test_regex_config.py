@@ -1,4 +1,5 @@
 import os
+import pytest
 
 from pytest_mock import MockerFixture
 
@@ -6,10 +7,25 @@ from regtech_regex.regex_config import RegexConfigs
 
 
 class TestRegex:
+    def test_singleton_instance(self, mocker: MockerFixture):
+        mock = mocker.patch("regtech_regex.regex_config.os.path.dirname")
+        mock.return_value = os.path.join(os.getcwd(), "src")
+
+        with pytest.raises(Exception) as e:
+            configs = RegexConfigs()
+
+        assert isinstance(e.value, NotImplementedError)
+        assert str(e.value) == "Use instance() instead"
+
+        configs = RegexConfigs.instance()
+        assert set(["email", "lei", "rssd_id", "tin", "phone_number"]).issubset(
+            set(dir(configs))
+        )
+
     def test_regex(self, mocker: MockerFixture):
         mock = mocker.patch("regtech_regex.regex_config.os.path.dirname")
         mock.return_value = os.path.join(os.getcwd(), "src")
-        
+
         configs = RegexConfigs.instance()
 
         good_email = "Jason.Adam@cfpb.gov"
