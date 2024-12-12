@@ -2,23 +2,33 @@
   "name": "regtech-regex",
   "license": "MIT",
   "private": true,
-  "version": "1.0.0",
-  "types": "src/node/dist/index.d.ts",
+  "version": "1.1.0",
+  "types": "./src/node/dist/index.d.ts",
   "type": "module",
   "exports": {
     ".": {
       "require": "./src/node/dist/regtech-regex.cjs",
       "import": "./src/node/dist/regtech-regex.es.js"
+    },
+    "./validations.yaml": {
+      "require": "./src/validations.yaml",
+      "import": "./src/validations.yaml"
+    },
+    "./validations.json": {
+      "require": "./src/validations.json",
+      "import": "./src/validations.json"
     }
   },
   "files": [
-    "src/node/dist"
+    "src/node/dist",
+    "src/validations.yaml",
+    "src/validations.json"
   ],
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "scripts": {
-    "build": "vite build"
+    "build": "node src/node/build.js ; vite build"
   },
   "dependencies": {
     "typescript": "^5.7.2",
