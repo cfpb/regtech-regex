@@ -9,4 +9,5 @@ export type RegtechRegexConfig = {
     references?: string[];
 };
 export declare const RegtechRegex: RegtechRegexConfigs;
-export default RegtechRegex;
+declare const _default: RegtechRegexConfigs;
+export default _default;

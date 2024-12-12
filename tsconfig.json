@@ -10,16 +10,10 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "baseUrl": "src/node",
-    "outDir": "src/node",
+    "outDir": "./src/node/dist/",
+    "baseUrl": "./src/",
+    "paths": {
+      "@/*": ["./*"]
+    },
   },
-  "include": [
-    "src/node/**/*.ts",
-    "src/node/**/*.tsx",
-    "src/node/**/*.jsx",
-    "src/node/**/*.js",
-    "src/validations.yaml",
-    "src/validations.json",
-    "package.json"
-  ]
 }

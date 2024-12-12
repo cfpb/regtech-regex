@@ -31,7 +31,7 @@ const e = {
   ],
   link: "https://regex101.com/r/l3SyQi/3",
   regex: "^\\d+$"
-}, i = {
+}, s = {
   description: "must be a simple United States phone number pattern of 3 digits, followed by a hyphen, followed by 3 digits, followed by a hyphen, followed by 4 digits",
   error_text: "Must be a valid phone number in the format of 555-555-5555.",
   examples: [
@@ -40,7 +40,7 @@ const e = {
   ],
   link: "https://regex101.com/r/jt6ujJ/5",
   regex: "^\\d{3}-\\d{3}-\\d{4}$"
-}, s = {
+}, i = {
   description: "must be 2 digits, followed by a hyphen, followed by 7 digits",
   error_text: "Must be a valid TIN in the format of 12-3456789.",
   examples: [
@@ -53,10 +53,10 @@ const e = {
   email: e,
   lei: t,
   rssd_id: o,
-  simple_us_phone_number: i,
-  tin: s
-}, n = a;
+  simple_us_phone_number: s,
+  tin: i
+}, r = a;
 export {
-  n as RegtechRegex,
-  n as default
+  r as RegtechRegex,
+  a as default
 };

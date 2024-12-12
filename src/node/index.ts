@@ -1,25 +1,18 @@
-import { parse as yamlParse } from "yaml";
-import * as fs from 'fs';
-import * as path from "path";
+import regexs from '@/validations.json';
 
-export interface RegtechRegexConfigs extends Record<string, RegtechRegexConfig> {
-}
+export type RegtechRegexNames = "email" | "lei" | "rssd_id" | "simple_us_phone_number" | "tin";
 
-export interface RegtechRegexConfig {
+export type RegtechRegexConfigs = Record<RegtechRegexNames, RegtechRegexConfig>;
+
+export type RegtechRegexConfig = {
     description: string;
     error_text: string;
     regex: string;
     examples?: string[];
     link?: string;
     references?: string[];
-}
+};
 
-export const getRegex = () => {
-    const content = fs.readFileSync(path.resolve(__dirname, '/src/validations.yaml'), {encoding: "utf8"});
-    const configs = yamlParse(content) as RegtechRegexConfigs;
-    return configs;
-}
+export const RegtechRegex: RegtechRegexConfigs = regexs as RegtechRegexConfigs;
 
-export const RegtechRegex = getRegex();
-
-export default RegtechRegex;
+export default regexs as RegtechRegexConfigs;
