@@ -76,3 +76,4 @@ bower_components/
 src/vendor/
 dist/
 !node/dist/
+!.yarn
