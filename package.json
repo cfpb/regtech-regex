@@ -7,7 +7,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "require": "./src/node/dist/regtech-regex.cjs",
+      "require": "./src/node/dist/regtech-regex.cjs.js",
       "import": "./src/node/dist/regtech-regex.es.js"
     },
     "./validations.yaml": {
@@ -20,12 +20,14 @@
     }
   },
   "files": [
-    "src/node/dist",
     "src/validations.yaml",
-    "src/validations.json"
+    "src/validations.json",
+    "src/node/dist/index.d.ts",
+    "src/node/dist/regtech-regex.cjs.js",
+    "src/node/dist/regtech-regex.es.js"
   ],
   "engines": {
-    "node": ">=22"
+    "node": ">=20"
   },
   "scripts": {
     "build": "node src/node/build.js ; vite build"
