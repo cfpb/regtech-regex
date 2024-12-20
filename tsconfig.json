@@ -10,7 +10,7 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "outDir": "./src/node/dist/",
+    "outDir": "./src/node/lib/",
     "baseUrl": "./src/",
     "paths": {
       "@/*": ["./*"]

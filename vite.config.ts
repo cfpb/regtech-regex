@@ -18,7 +18,7 @@ export default defineConfig(() => ({
     }),
   ],
   build: {
-    outDir: 'src/node/dist',
+    outDir: 'src/node/lib',
     lib: {
       entry: resolve('src', 'node', 'index.ts'),
       name,
