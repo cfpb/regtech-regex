@@ -7,7 +7,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "require": "./src/node/dist/regtech-regex.cjs",
+      "require": "./src/node/dist/regtech-regex.cjs.js",
       "import": "./src/node/dist/regtech-regex.es.js"
     },
     "./validations.yaml": {
@@ -23,7 +23,7 @@
     "src/validations.yaml",
     "src/validations.json",
     "src/node/dist/index.d.ts",
-    "src/node/dist/regtech-regex.cjs",
+    "src/node/dist/regtech-regex.cjs.js",
     "src/node/dist/regtech-regex.es.js"
   ],
   "engines": {
