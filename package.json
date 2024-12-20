@@ -20,9 +20,11 @@
     }
   },
   "files": [
-    "src/node/dist/",
     "src/validations.yaml",
-    "src/validations.json"
+    "src/validations.json",
+    "src/node/dist/index.d.ts",
+    "src/node/dist/regtech-regex.cjs",
+    "src/node/dist/regtech-regex.es.js"
   ],
   "engines": {
     "node": ">=20"
