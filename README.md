@@ -16,12 +16,20 @@ which is then converted into a data class for use by clients of the library.
 
 See the src/python/README.md for information on dependencies, installation and usage.
 
+### Node
+A Node project has been defined in package.json, as well as the source under src/node.
+
+See the src/node/README.md for information on dependencies, installation and usage.
+
 ## Installation
 
 Import the `validations.yaml` file using the URL or via a package manager.
 
 ### Python
 See the src/python/README.md for information on dependencies, installation and usage.
+
+### Node
+See the src/node/README.md for information on dependencies, installation and usage.
 
 ## Usage
 
@@ -51,6 +59,9 @@ Each entry should have the following properties:
 
 ### Python
 See the src/python/README.md for information on dependencies, installation and usage.
+
+### Node
+See the src/node/README.md for information on dependencies, installation and usage.
 
 ## Getting help
 
