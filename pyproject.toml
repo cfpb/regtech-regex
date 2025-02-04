@@ -1,11 +1,16 @@
 [project]
 name = "regtech-regex"
-version = "0.1.0"
+version = "0.1.2"
 description = ""
 authors = [
     {name = "CFPB's RegTech Team"}
 ]
 readme = "src/python/README.md"
+license = "CC0-1.0"
+homepage = "https://github.com/cfpb/regtech-regex"
+repository = "https://github.com/cfpb/regtech-regex"
+documentation = "https://github.com/cfpb/regtech-regex/README.md"
+
 requires-python = ">=3.12"
 dependencies = [
     "pyyaml~=6.0.1",
@@ -16,6 +21,10 @@ allow-direct-references = true
 
 [tool.hatch.build]
 packages = ["src/python/regtech_regex"]
+dependencies = [
+    "setuptools>=42",
+    "wheel",
+]
 
 [tool.hatch.build.force-include]
 "src/validations.yaml" = "regtech_regex/validations.yaml"
@@ -80,6 +89,11 @@ packages = [
     { include = "validations.yaml", from = "src" },
     { include = "regtech_regex", from = "src/python" }
 ]
+license = "CC0-1.0"
+homepage = "https://github.com/cfpb/regtech-regex"
+repository = "https://github.com/cfpb/regtech-regex"
+documentation = "https://github.com/cfpb/regtech-regex/README.md"
+
 
 [tool.poetry.dependencies]
 python = ">=3.12,<4"
